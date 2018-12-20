@@ -10,7 +10,7 @@ html, body {
 
 h1 {
     color: #f9d767;
-    font-size: 5rem;
+    font-size: 8rem;
     text-shadow: 0px 1.5px 0px #BFA251;
 }
 
@@ -62,7 +62,7 @@ header nav {
 header li {
     display: inline-block;
     line-height: 6rem;
-    margin: 0 3rem;
+    margin: 0 2rem;
     font-size: 2rem;
 }
 
@@ -88,33 +88,36 @@ header li > a:hover, header li > a:focus {
 }
 */
 
-#HeroImage h1 { 
-    margin: 240px auto 0 auto;
-    font-size: 90px;
+#HeroImage, #HeroImage h1 {
+  margin: 0 auto;
 }
 
-#HeroImage {
-  margin: 0 auto 0 auto;
-  font-size: 15px;
-}
-
-#HeroImage img {
-    width: 32px;
-    margin-top: 150px;
-    opacity: 0.7;
-}
-
-#HeroImage img:hover {
+#HeroImage i {
+    text-align: center;
+    margin-top: 40vh;
+    font-size: 4rem;
+    color: white;
     opacity: 1;
+    transition: ease .3s;
 }
-/**** Info***/
+
+#HeroImage i:hover {
+    opacity: .7;
+}
 
 
+/**** BACKGROUND ***/
 
+section:nth-child(odd) {background-color: #35393f;}
+section:nth-child(even) {background-color: #51565E;}
+
+section {
+    padding: 7rem 2rem 4rem 2rem;
+    max-height: 100vh;
+    max-width: 100vw;
+}
 
 /**** Graph1***/
-#Graph1 {
-  background-color: #f0f0f0;}
 
 #chart1 {
   max-width: 650px;
@@ -123,7 +126,6 @@ header li > a:hover, header li > a:focus {
 
 /**** Graph2***/
 
-
 #chart2 {
   max-width: 650px;
   margin: 35px auto;
@@ -131,24 +133,9 @@ header li > a:hover, header li > a:focus {
 
 /**** Graph3***/
 
-#Graph3 {
-background-color: #f0f0f0;}
-
-}
 #chart3 {
   max-width: 650px;
   margin: 35px auto;
 }
+
 /**** Footer***/
-
-footer {
-  width: 100%;
-  height: 70px;
-  background-color: #3f3f3f;
-}
-
-footer p {
-  font-size: 12px;
-  color: #f0f0f0;
-  padding-top: 30px;
-}
