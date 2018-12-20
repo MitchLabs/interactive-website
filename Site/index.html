@@ -1,82 +1,81 @@
-<<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wörterbuch</title>
+<!--    META TAGS-->
     <meta charset="utf-8">
-    <title> Wörterbuch</title>
-
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <meta name="language" content="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="expires" content="0">
+    <meta name="format-detection" content="telephone=yes">
+<!--    FAVICON-->
+    <link rel="shortcut icon" type="image/x-icon" href="">   
+<!--    STYLESHEETS-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+    
+<body>
     <header>
-    <div id="Logo">
-      <a href="#">
-        <img src="img/logo.png" alt="Logo">
-      </a>
-    </div>
-
-    <nav id="main-nav">
-      <ul>
-        <li> <a href="#HeroImage">Home</a></li>
-        <li> <a href="#Graph1">Info</a></li>
-        <li> <a href="#Graph2">Finazen</a></li>
-        <li> <a href="#Graph3">Sonstiges</a></li>
-      </ul>
-    </nav>
+        <a href="#"><img src="img/logo.png" alt="Logo" class="logo"></a>
+        <nav id="main-nav">
+          <ul>
+            <li><a href="#HeroImage">Home</a></li>
+            <li><a href="#Graph1">Info</a></li>
+            <li><a href="#Graph2">Finanzen</a></li>
+            <li><a href="#Graph3">Sonstiges</a></li>
+          </ul>
+        </nav>
     </header>
+    
     <container id="fullpage">
+        <section id="HeroImage">
+            <h1>Das Wörterbuch</h1>
+            <h2>Projekt von Studenten</h2>
+            <a href="#"><img src="img/pfeil.png" alt="Pfeil"></a>
+        </section>
 
-  <section id="HeroImage">
-    <hr>
-    <h1>Das Wörterbuch</h1>
-  <h2>Projekt von Studenten</h2>
-  <a href="#"> <img src="img/pfeil.png" alt="Pfeil"> </a>
-  </section>
+        <section id="Info">
+          <h3>Info</h3>
+          <hr>
+          <p>blabla </p>
+        </section>
 
-<section id="Info">
-  <h3>Info</h3>
-  <hr>
-  <p>blabla </p>
-</section>
+        <section id="Graph1">
+          <h3>Info</h3>
+          <hr>
+          <p>blabla </p>
+          <div id="chart1"></div>
+        </section>
 
-<section id="Graph1">
-  <h3>Info</h3>
-  <hr>
-  <p>blabla </p>
-  <div id="chart1"></div>
-</section>
+        <section id="Graph2">
+          <h3>Info</h3>
+          <hr>
+          <p>blabla </p>
+          <div id="chart2"></div>
+        </section>
 
-<section id="Graph2">
-  <h3>Info</h3>
-  <hr>
-  <p>blabla </p>
-  <div id="chart2"></div>
-</section>
+        <section id="Graph3">
+          <h3>Info</h3>
+          <hr>
+          <p>blabla </p>
+          <div id="chart3"></div>
+        </section>
+    </container>
 
-<section id="Graph3">
-  <h3>Info</h3>
-  <hr>
-  <p>blabla </p>
-  <div id="chart3"></div>
-</section>
-</container>
-
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script  src="js/script.js"></script>
-
-
-<footer>
-<p>Copyright DHBW Mosbach</p>
-</footer>
-
-  </body>
+    <footer>
+        <p>Copyright DHBW Mosbach</p>
+    </footer>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script  src="js/script.js"></script>
+    <script  src="js/scroller.js"></script>
+</body>
 </html>
