@@ -12,7 +12,7 @@ $(document).ready(function() {
 });
 
 //chart 1
-var colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'];
+var colors = ['#f9d767', '#f9d767', '#f9d767', '#f9d767', '#f9d767', '#f9d767', '#f9d767', '#f9d767'];
      var options = {
          chart: {
              height: 350,
@@ -54,6 +54,7 @@ var chart = new ApexCharts(
 chart.render();
 
 // Chart 2
+
  var options = {
      chart: {
          height: 350,
