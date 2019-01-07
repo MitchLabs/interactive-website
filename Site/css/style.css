@@ -5,24 +5,29 @@ html, body {
     height: 100%;
     text-align: center;
     background-color: #35393f;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     color: #f9d767;
     font-size: 8rem;
     text-shadow: 0px 1.5px 0px #BFA251;
+    font-family: 'Noto Serif', serif;
 }
 
 h2, h3 {
     color: white;
     font-size: 3rem;
+    font-family: 'Noto Serif', serif;
 }
 
 p {
     color: white;
     font-size: 1.8rem;
     line-height: 2.4rem;
+    width: 70%;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p > a {
@@ -69,7 +74,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background: #35393f;
+    background: #51565E;
     box-shadow: 0 1px rgba(0, 0, 0, 0.1);
     z-index: 99;
 }
@@ -128,6 +133,7 @@ header li > a:hover, header li > a:focus {
     text-align: center;
     background-color: transparent;
     transition: ease .3s;
+    font-family: 'Noto Serif', serif;
 }
 
 .startbtn:hover, .startbtn:active, .startbtn:focus {
@@ -148,6 +154,7 @@ header li > a:hover, header li > a:focus {
     text-align: center;
     background-color: transparent;
     transition: ease .3s;
+    font-family: 'Noto Serif', serif;
 }
 
 .infobtn:hover, .infobtn:active, .infobtn:focus {
@@ -159,8 +166,8 @@ header li > a:hover, header li > a:focus {
 
 /**** BACKGROUND ***/
 
-section:nth-child(odd) {background-color: #35393f;}
-section:nth-child(even) {background-color: #51565E;}
+section:nth-child(odd) {background-color: #51565E;}
+section:nth-child(even) {background-color: #6C7178;}
 
 section {
     padding: 7rem 2rem 4rem 2rem;
@@ -184,25 +191,82 @@ section {
     color: yellow;
 }
 
+#mapchart {
+  width: 100%;
+  height: 500px;
+}
+
 /**** Graph1***/
 
 #chart1 {
-  max-width: 650px;
-  margin: 35px auto;
+    max-width: 650px;
+    height: 50%;
+    margin: 35px auto;
 }
 
 /**** Graph2***/
 
 #chart2 {
-  max-width: 650px;
-  margin: 35px auto;
+    max-width: 650px;
+    height: 50%;
+    margin: 35px auto;
 }
 
 /**** Graph3***/
 
 #chart3 {
-  max-width: 650px;
-  margin: 35px auto;
+    max-width: 650px;
+    height: 50%;
+    margin: 35px auto;
+}
+
+/**** Graph4***/
+
+#chart4 {
+    max-width: 650px;
+    height: 50%;
+    margin: 35px auto;
+}
+
+/**** Graph5***/
+
+#chart5 {
+    max-width: 650px;
+    margin: 35px auto;
+    height: 50%;
 }
 
 /**** Footer***/
+
+/*Scroll Icon*/
+
+.scroll-downs {
+  margin: 2rem auto 0 auto;
+  
+  width :34px;
+  height: 55px;
+}
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 1.5px solid #f9d767;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.scroller {
+  width: 4px;
+  height: 6px;
+  border-radius: 25%;
+  background-color: #f9d767;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0.5;}
+}
