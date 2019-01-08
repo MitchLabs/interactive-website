@@ -31,6 +31,15 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+b {
+    color: #f9d767;
+}
+
+.dark-text {
+    color: #f9d767;
+    font-size: 1.2rem;
+}
+
 p > a {
     color: #f9d767;
     transition: ease .3s;
@@ -252,6 +261,25 @@ section {
 }
 
 /**** Footer***/
+
+.footerlogo {
+    width: 160px;
+    margin-top: 6rem;
+    transition: ease .2s;
+}
+
+.footerlogo:hover {
+    animation-name: dhbwlogo;
+    animation-duration: .2s;
+    animation-timing-function: ease;
+    width: 170px;
+}
+
+@keyframes dhbwlogo {
+  0% {width: 160px;}
+    70% {width: 180px;}
+  100% {width: 170px;}
+}
 
 /*Scroll Icon*/
 
