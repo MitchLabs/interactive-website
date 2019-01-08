@@ -22,8 +22,8 @@ h2, h3 {
 }
 
 p {
-    color: white;
-    font-size: 1.8rem;
+    color: #E9E9E9;
+    font-size: 1.5rem;
     line-height: 2.4rem;
     width: 70%;
     margin: auto;
@@ -93,7 +93,7 @@ header li {
     display: inline-block;
     line-height: 6rem;
     margin: 0 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 header li > a {
@@ -196,26 +196,32 @@ section {
   height: 500px;
 }
 
-/**** Graph1***/
+/**** Graph1-1 & 1-2***/
 
-#chart1 {
-    max-width: 650px;
-    height: 50%;
-    margin: 35px auto;
+#chart1-1 {
+    max-width: 40%;
+    height: 40vh;
+    margin: 5rem 3rem 0 3rem;
+}
+
+#chart1-2 {
+    max-width: 40%;
+    height: 40vh;
+    margin: 5rem 3rem 0 3rem;
 }
 
 /**** Graph2***/
 
 #chart2 {
-    max-width: 650px;
-    height: 50%;
+    max-width: 80%;
+    height: 45%;
     margin: 35px auto;
 }
 
 /**** Graph3***/
 
 #chart3 {
-    max-width: 650px;
+    max-width: 75%;
     height: 50%;
     margin: 35px auto;
 }
@@ -223,17 +229,25 @@ section {
 /**** Graph4***/
 
 #chart4 {
-    max-width: 650px;
-    height: 50%;
+    max-width: 95%;
+    height: 60%;
     margin: 35px auto;
 }
 
 /**** Graph5***/
 
-#chart5 {
-    max-width: 650px;
+#chart5-1 {
+    max-width: 100%;
     margin: 35px auto;
-    height: 50%;
+    height: 65vh;
+    font-size: 1.4rem;
+}
+
+#chart5-2 {
+    max-width: 100%;
+    margin: 35px auto;
+    height: 65vh;
+    font-size: 1.4rem;
 }
 
 /**** Footer***/

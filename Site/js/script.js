@@ -11,11 +11,74 @@ $(document).ready(function() {
     });
 });
 
+//COLOR THEME
 
+function am4themes_wd3(target) {
+        target.list = [
+            am4core.color("#E8CF88"),
+            am4core.color("#686BA2"),
+          am4core.color("#f9d767"),
+            am4core.color("#434685"),
+          am4core.color("#967928"),
+          am4core.color("#272A68")
+        ];
+        if (target instanceof am4core.InterfaceColorSet) {
+            target.setFor("text", am4core.color("#E9E9E9"));
+            target.setFor("grid", am4core.color("#B6B7BA"));
+            target.setFor("secondaryButton", am4core.color("#51565E"));
+            target.setFor("secondaryButtonHover", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonDown", am4core.color("#35393F").lighten(-0.2));
+            target.setFor("secondaryButtonActive", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonText", am4core.color("#E9E9E9"));
+            target.setFor("secondaryButtonStroke", am4core.color("#6C7178"));
+        }
+}
+
+function am4themes_map(target) {
+        target.list = [
+            am4core.color("#E9E9E9")
+        ];
+        if (target instanceof am4core.InterfaceColorSet) {
+            target.setFor("text", am4core.color("#35393F"));
+            target.setFor("grid", am4core.color("#B6B7BA"));
+            target.setFor("secondaryButton", am4core.color("#51565E"));
+            target.setFor("secondaryButtonHover", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonDown", am4core.color("#35393F").lighten(-0.2));
+            target.setFor("secondaryButtonActive", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonText", am4core.color("#E9E9E9"));
+            target.setFor("secondaryButtonStroke", am4core.color("#6C7178"));
+        }
+}
+
+function am4themes_wd3gelb(target) {
+        target.list = [
+            am4core.color("#E8CF88"),
+            am4core.color("#f9d767"),
+            am4core.color("#E8CF88"),
+            am4core.color("#f9d767"),
+            am4core.color("#E8CF88"),
+            am4core.color("#f9d767"),
+            am4core.color("#E8CF88"),
+            am4core.color("#f9d767"),
+            am4core.color("#E8CF88"),
+            am4core.color("#f9d767")
+        ];
+        if (target instanceof am4core.InterfaceColorSet) {
+            target.setFor("text", am4core.color("#E9E9E9"));
+            target.setFor("grid", am4core.color("#B6B7BA"));
+            target.setFor("secondaryButton", am4core.color("#51565E"));
+            target.setFor("secondaryButtonHover", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonDown", am4core.color("#35393F").lighten(-0.2));
+            target.setFor("secondaryButtonActive", am4core.color("#f9d767").lighten(-0.2));
+            target.setFor("secondaryButtonText", am4core.color("#E9E9E9"));
+            target.setFor("secondaryButtonStroke", am4core.color("#6C7178"));
+        }
+}
 
 //MAP
 
 // Themes begin
+am4core.useTheme(am4themes_map);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -53,7 +116,7 @@ chart.homeGeoPoint = { longitude: -12, latitude: 30 };
 
 var groupData = [
   {
-    "name": "Teilnehmer an der Studie",
+    "name": "Anzahl der Teilnehmer an der Studie",
     "color": chart.colors.getIndex(0),
     "data": [
       {
@@ -198,10 +261,10 @@ groupData.forEach(function(group) {
 
   // States
   var hoverState = mapPolygonTemplate.states.create("hover");
-  hoverState.properties.fill = am4core.color("#CC0000");
+  hoverState.properties.fill = am4core.color("#f9d767");
 
   // Tooltip
-  mapPolygonTemplate.tooltipText = "{title}  {customData}"; // enables tooltip
+  mapPolygonTemplate.tooltipText = "{customData} Teilnehmer aus {title}"; // enables tooltip
   // series.tooltip.getFillFromObject = false; // prevents default colorization, which would make all tooltips red on hover
   // series.tooltip.background.fill = am4core.color(group.color);
 
@@ -239,68 +302,126 @@ chart.legend.itemContainers.template.interactionsEnabled = false;
 //* * * * *
 
 
-//CHART 1
+//CHART 1-1
 
 // Themes begin
+am4core.useTheme(am4themes_wd3);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
 // Create chart instance
-var chart = am4core.create("chart1", am4charts.XYChart);
+var chart = am4core.create("chart1-1", am4charts.XYChart);
 
 // Add percent sign to all numbers
-chart.numberFormatter.numberFormat = "#.3'%'";
+chart.numberFormatter.numberFormat = "#0' Teilnehmer";
 
 // Add data
 chart.data = [{
-    "country": "USA",
-    "year2004": 3.5,
-    "year2005": 4.2
+    "Format": "Computer",
+    "deutschland": 401,
+    "europa": 7441
 }, {
-    "country": "UK",
-    "year2004": 1.7,
-    "year2005": 3.1
+    "Format": "Smartphone",
+    "deutschland": 222,
+    "europa": 3429
 }, {
-    "country": "Canada",
-    "year2004": 2.8,
-    "year2005": 2.9
-}, {
-    "country": "Japan",
-    "year2004": 2.6,
-    "year2005": 2.3
-}, {
-    "country": "France",
-    "year2004": 1.4,
-    "year2005": 2.1
-}, {
-    "country": "Brazil",
-    "year2004": 2.6,
-    "year2005": 4.9
+    "Format": "Tablet",
+    "deutschland": 76,
+    "europa": 1283
+},{
+    "Format": "Gedruckt / Buch",
+    "deutschland": 285,
+    "europa": 5352
 }];
 
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "country";
+categoryAxis.dataFields.category = "Format";
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.minGridDistance = 30;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = "GDP growth rate";
+valueAxis.title.text = "Präferiertes Format";
 valueAxis.title.fontWeight = 800;
 
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueY = "year2004";
-series.dataFields.categoryX = "country";
+series.dataFields.valueY = "deutschland";
+series.dataFields.categoryX = "Format";
 series.clustered = false;
-series.tooltipText = "GDP grow in {categoryX} (2004): [bold]{valueY}[/]";
+series.tooltipText = "[bold]{valueY}[/] Teilnehmer nutzen {categoryX}";
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
-series2.dataFields.valueY = "year2005";
-series2.dataFields.categoryX = "country";
+series2.dataFields.valueY = "europa";
+series2.dataFields.categoryX = "Format";
 series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
-series2.tooltipText = "GDP grow in {categoryX} (2005): [bold]{valueY}[/]";
+series2.tooltipText = "[bold]{valueY}[/] Teilnehmer präferieren {categoryX}";
+
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.lineX.disabled = true;
+chart.cursor.lineY.disabled = true;
+
+
+
+//* * * * *
+
+
+//CHART 1-2
+
+// Themes begin
+am4core.useTheme(am4themes_wd3);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chart1-2", am4charts.XYChart);
+
+// Add percent sign to all numbers
+chart.numberFormatter.numberFormat = "#0' Teilnehmer";
+
+// Add data
+chart.data = [{
+    "Format": "Computer",
+    "deutschland": 266,
+    "europa": 4943
+}, {
+    "Format": "Smartphone",
+    "deutschland": 60,
+    "europa": 1058
+}, {
+    "Format": "Tablet",
+    "deutschland": 12,
+    "europa": 218
+},{
+    "Format": "Gedruckt / Buch",
+    "deutschland": 118,
+    "europa": 2618
+}];
+
+// Create axes
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "Format";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 30;
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.title.text = "Tatsächlich genutztes Format";
+valueAxis.title.fontWeight = 800;
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.dataFields.valueY = "deutschland";
+series.dataFields.categoryX = "Format";
+series.clustered = false;
+series.tooltipText = "[bold]{valueY}[/] Teilnehmer nutzen {categoryX}";
+
+var series2 = chart.series.push(new am4charts.ColumnSeries());
+series2.dataFields.valueY = "europa";
+series2.dataFields.categoryX = "Format";
+series2.clustered = false;
+series2.columns.template.width = am4core.percent(50);
+series2.tooltipText = "[bold]{valueY}[/] Teilnehmer präferieren {categoryX}";
 
 chart.cursor = new am4charts.XYCursor();
 chart.cursor.lineX.disabled = true;
@@ -313,6 +434,7 @@ chart.cursor.lineY.disabled = true;
 // Chart 2
 
 // Themes begin
+am4core.useTheme(am4themes_wd3);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -321,25 +443,29 @@ var chart = am4core.create("chart2", am4charts.XYChart);
 
 // Add data
 chart.data = [{
-  "year": 2005,
-  "income": 23.5,
-  "expenses": 18.1
+  "year": "Gestern oder heute",
+  "deutschland": 273,
+  "europa": 3085
 },{
-  "year": 2006,
-  "income": 26.2,
-  "expenses": 22.8
+  "year": "Innerhalb der letzten Woche",
+  "deutschland": 122,
+  "europa": 2288
 },{
-  "year": 2007,
-  "income": 30.1,
-  "expenses": 23.9
+  "year": "Innerhalb des letzten Monats",
+  "deutschland": 46,
+  "europa": 1724
 },{
-  "year": 2008,
-  "income": 29.5,
-  "expenses": 25.1
+  "year": "Innerhalb des letzten Jahres",
+  "deutschland": 24,
+  "europa": 1032
 },{
-  "year": 2009,
-  "income": 24.6,
-  "expenses": 25
+    "year": "Vor mindestens über einem Jahr" ,
+  "deutschland": 9,
+  "europa": 719
+},{
+  "year": "Noch nie",
+  "deutschland": 5,
+  "europa": 523
 }];
 
 // Create axes
@@ -380,8 +506,8 @@ function createSeries(field, name) {
   categoryLabel.label.truncate = false;
 }
 
-createSeries("income", "Income");
-createSeries("expenses", "Expenses");
+createSeries("deutschland", "Deutschland");
+createSeries("europa", "Europa");
 
 
 //* * * * *
@@ -390,6 +516,7 @@ createSeries("expenses", "Expenses");
 //chart3
 
 // Themes begin
+am4core.useTheme(am4themes_wd3);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -401,49 +528,41 @@ chart.innerRadius = am4core.percent(40);
 
 // Add data
 chart.data = [{
-  "country": "Lithuania",
-  "litres": 501.9,
-  "bottles": 1500
+  "antwort": "Ja, sie sind kulturelles Erbe",
+  "deutschland": 219,
+  "europa": 4618
 }, {
-  "country": "Czech Republic",
-  "litres": 301.9,
-  "bottles": 990
+  "antwort": "Ja, sie helfen der Öffentlichkeit",
+  "deutschland": 197,
+  "europa": 3209
 }, {
-  "country": "Ireland",
-  "litres": 201.1,
-  "bottles": 785
+  "antwort": "Ja, aber es gibt z. Z. wichtigere Dinge",
+  "deutschland": 33,
+  "europa": 612
 }, {
-  "country": "Germany",
-  "litres": 165.8,
-  "bottles": 255
+  "antwort": "Ja, aus einem anderen Grund",
+  "deutschland": 10,
+  "europa": 320
 }, {
-  "country": "Australia",
-  "litres": 139.9,
-  "bottles": 452
+  "antwort": "Nein, private Hersteller bieten gute Wörterbücher an",
+  "deutschland": 8,
+  "europa": 300
 }, {
-  "country": "Austria",
-  "litres": 128.3,
-  "bottles": 332
+  "antwort": "Nein, es gibt wichtigere Dinge, die finanziert werden sollten",
+  "deutschland": 9,
+  "europa": 177
 }, {
-  "country": "UK",
-  "litres": 99,
-  "bottles": 150
-}, {
-  "country": "Belgium",
-  "litres": 60,
-  "bottles": 178
-}, {
-  "country": "The Netherlands",
-  "litres": 50,
-  "bottles": 50
+  "antwort": "Nein, aus einem anderen Grund",
+  "deutschland": 3,
+  "europa": 131
 }];
 
 // Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());
-pieSeries.dataFields.value = "litres";
-pieSeries.dataFields.category = "country";
-pieSeries.slices.template.stroke = am4core.color("#fff");
-pieSeries.slices.template.strokeWidth = 2;
+pieSeries.dataFields.value = "deutschland";
+pieSeries.dataFields.category = "antwort";
+pieSeries.slices.template.stroke = am4core.color("#6C7178");
+pieSeries.slices.template.strokeWidth = 1;
 pieSeries.slices.template.strokeOpacity = 1;
 
 // Disabling labels and ticks on inner circle
@@ -456,10 +575,10 @@ pieSeries.slices.template.states.getKey("hover").properties.scale = 0.9;
 
 // Add second series
 var pieSeries2 = chart.series.push(new am4charts.PieSeries());
-pieSeries2.dataFields.value = "bottles";
-pieSeries2.dataFields.category = "country";
-pieSeries2.slices.template.stroke = am4core.color("#fff");
-pieSeries2.slices.template.strokeWidth = 2;
+pieSeries2.dataFields.value = "europa";
+pieSeries2.dataFields.category = "antwort";
+pieSeries2.slices.template.stroke = am4core.color("#6C7178");
+pieSeries2.slices.template.strokeWidth = 1;
 pieSeries2.slices.template.strokeOpacity = 1;
 pieSeries2.slices.template.states.getKey("hover").properties.shiftRadius = 0;
 pieSeries2.slices.template.states.getKey("hover").properties.scale = 1.1;
@@ -471,6 +590,7 @@ pieSeries2.slices.template.states.getKey("hover").properties.scale = 1.1;
 //CHART 4
 
 // Themes begin
+am4core.useTheme(am4themes_wd3);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -479,49 +599,144 @@ chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
   {
-    category: "One",
-    value1: 1,
-    value2: 5,
-    value3: 3
+    country: "Österreich",
+    yes: 130,
+    no: 138
   },
   {
-    category: "Two",
-    value1: 2,
-    value2: 5,
-    value3: 3
+    country: "Baskenland",
+    yes: 84,
+    no: 48
   },
   {
-    category: "Three",
-    value1: 3,
-    value2: 5,
-    value3: 4
+    country: "Belgien",
+    yes: 90,
+    no: 196
   },
   {
-    category: "Four",
-    value1: 4,
-    value2: 5,
-    value3: 6
+    country: "Brasilien",
+    yes: 122,
+    no: 152
   },
   {
-    category: "Five",
-    value1: 3,
-    value2: 5,
-    value3: 4
+    country: "Kroatien",
+    yes: 214,
+    no: 302
   },
   {
-    category: "Six",
-    value1: 2,
-    value2: 13,
-    value3: 1
+    country: "Tschechische Republik",
+    yes: 84,
+    no: 62
+  },
+    {
+    country: "Dänemark",
+    yes: 172,
+    no: 233
+  },
+  {
+    country: "Estland",
+    yes: 96,
+    no: 371
+  },
+  {
+    country: "Finnland",
+    yes: 120,
+    no: 177
+  },
+  {
+    country: "Frankreich",
+    yes: 60,
+    no: 178
+  },
+  {
+    country: "Georgien",
+    yes: 451,
+    no: 56
+  },
+  {
+    country: "Deutschland",
+    yes: 256,
+    no: 221
+  },
+    {
+    country: "Griechenland",
+    yes: 271,
+    no: 558
+  },
+  {
+    country: "Israel",
+    yes: 69,
+    no: 76
+  },
+  {
+    country: "Italien",
+    yes: 113,
+    no: 172
+  },
+  {
+    country: "Mazedonien",
+    yes: 113,
+    no: 67
+  },
+  {
+    country: "Niederlande",
+    yes: 53,
+    no: 77
+  },
+  {
+    country: "Norwegen",
+    yes: 142,
+    no: 277
+  },
+    {
+    country: "Polen",
+    yes: 314,
+    no: 334
+  },
+  {
+    country: "Portugal",
+    yes: 134,
+    no: 215
+  },
+  {
+    country: "Rumänien",
+    yes: 327,
+    no: 551
+  },
+  {
+    country: "Serbien",
+    yes: 118,
+    no: 175
+  },
+  {
+    country: "Slowenien",
+    yes: 203,
+    no: 416
+  },
+  {
+    country: "Spanien",
+    yes: 131,
+    no: 166
+  },
+    {
+    country: "Schweden",
+    yes: 34,
+    no: 78
+  },
+  {
+    country: "Großbritannien & Irland",
+    yes: 87,
+    no: 82
   }
 ];
 
-chart.colors.step = 2;
+
+chart.colors.step = 1;
 chart.padding(30, 30, 10, 30);
 chart.legend = new am4charts.Legend();
 
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "category";
+categoryAxis.dataFields.category = "country";
 categoryAxis.renderer.grid.template.location = 0;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
@@ -535,53 +750,36 @@ valueAxis.renderer.minWidth = 50;
 var series1 = chart.series.push(new am4charts.ColumnSeries());
 series1.columns.template.width = am4core.percent(80);
 series1.columns.template.tooltipText =
-  "{name}: {valueY.totalPercent.formatNumber('#.00')}%";
-series1.name = "Series 1";
-series1.dataFields.categoryX = "category";
-series1.dataFields.valueY = "value1";
+  "{name}: {valueY.totalPercent.formatNumber('#.0')}%";
+series1.name = "Ja";
+series1.dataFields.categoryX = "country";
+series1.dataFields.valueY = "yes";
 series1.dataFields.valueYShow = "totalPercent";
 series1.dataItems.template.locations.categoryX = 0.5;
 series1.stacked = true;
 series1.tooltip.pointerOrientation = "vertical";
 
 var bullet1 = series1.bullets.push(new am4charts.LabelBullet());
-bullet1.label.text = "{valueY.totalPercent.formatNumber('#.00')}%";
+bullet1.label.text = "{valueY.totalPercent.formatNumber('#.')}%";
 bullet1.label.fill = am4core.color("#ffffff");
 bullet1.locationY = 0.5;
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.columns.template.width = am4core.percent(80);
 series2.columns.template.tooltipText =
-  "{name}: {valueY.totalPercent.formatNumber('#.00')}%";
-series2.name = "Series 2";
-series2.dataFields.categoryX = "category";
-series2.dataFields.valueY = "value2";
+  "{name}: {valueY.totalPercent.formatNumber('#.0')}%";
+series2.name = "Nein";
+series2.dataFields.categoryX = "country";
+series2.dataFields.valueY = "no";
 series2.dataFields.valueYShow = "totalPercent";
 series2.dataItems.template.locations.categoryX = 0.5;
 series2.stacked = true;
 series2.tooltip.pointerOrientation = "vertical";
 
 var bullet2 = series2.bullets.push(new am4charts.LabelBullet());
-bullet2.label.text = "{valueY.totalPercent.formatNumber('#.00')}%";
+bullet2.label.text = "{valueY.totalPercent.formatNumber('#.')}%";
 bullet2.locationY = 0.5;
 bullet2.label.fill = am4core.color("#ffffff");
-
-var series3 = chart.series.push(new am4charts.ColumnSeries());
-series3.columns.template.width = am4core.percent(80);
-series3.columns.template.tooltipText =
-  "{name}: {valueY.totalPercent.formatNumber('#.00')}%";
-series3.name = "Series 3";
-series3.dataFields.categoryX = "category";
-series3.dataFields.valueY = "value3";
-series3.dataFields.valueYShow = "totalPercent";
-series3.dataItems.template.locations.categoryX = 0.5;
-series3.stacked = true;
-series3.tooltip.pointerOrientation = "vertical";
-
-var bullet3 = series3.bullets.push(new am4charts.LabelBullet());
-bullet3.label.text = "{valueY.totalPercent.formatNumber('#.00')}%";
-bullet3.locationY = 0.5;
-bullet3.label.fill = am4core.color("#ffffff");
 
 chart.scrollbarX = new am4core.Scrollbar();
 
@@ -589,32 +787,57 @@ chart.scrollbarX = new am4core.Scrollbar();
 //* * * * *
 
 
-//CHART 4
+//CHART 5-1
 
 // Themes begin
+am4core.useTheme(am4themes_wd3gelb);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
 // Create chart instance
-var chart = am4core.create("chart5", am4charts.RadarChart);
+var chart = am4core.create("chart5-1", am4charts.RadarChart);
 
 // Add data
 chart.data = [{
-  "category": "Research",
-  "value": 80,
-  "full": 100
+/*  "category": "Keine der genannten Möglichkeiten",
+  "value": 0.3,
+  "full": 25
 }, {
-  "category": "Marketing",
-  "value": 35,
-  "full": 100
+"category": "Weiß ich nicht",
+  "value": 1.2,
+  "full": 25
+}, {*/
+"category": "Interessiert hauptsächlich AkademikerInnen",
+  "value": 5.3,
+  "full": 25
 }, {
-  "category": "Distribution",
-  "value": 92,
-  "full": 100
+    "category": "Nationales Symbol",
+  "value": 5.8,
+  "full": 25
 }, {
-  "category": "Human Resources",
-  "value": 68,
-  "full": 100
+  "category": "Nützlich für Kinder",
+  "value": 8,
+  "full": 25
+}, {
+  "category": "Nachschlagewerk für spezielle Interessen",
+  "value": 9,
+  "full": 25
+}, {
+    "category": "Nützlich für AusländerInnen",
+  "value": 11.4,
+  "full": 25
+}, {
+  "category": "Autorität",
+  "value": 13.5,
+  "full": 25
+}, {
+  "category": "Quelle für umfassende Sprachkenntnisse",
+  "value": 22.4,
+  "full": 25
+}, {
+"category": "Nützlich für die Allgemeinheit",
+  "value": 23.1,
+  "full": 25
 }];
 
 // Make chart not full circle
@@ -640,7 +863,7 @@ categoryAxis.renderer.minGridDistance = 10;
 var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 valueAxis.renderer.grid.template.strokeOpacity = 0;
 valueAxis.min = 0;
-valueAxis.max = 100;
+valueAxis.max = 25;
 valueAxis.strictMinMax = true;
 
 // Create series
@@ -648,7 +871,114 @@ var series1 = chart.series.push(new am4charts.RadarColumnSeries());
 series1.dataFields.valueX = "full";
 series1.dataFields.categoryY = "category";
 series1.clustered = false;
-series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+//series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+series1.columns.template.fillOpacity = 0.08;
+series1.columns.template.cornerRadiusTopLeft = 20;
+series1.columns.template.strokeWidth = 0;
+series1.columns.template.radarColumn.cornerRadius = 20;
+
+var series2 = chart.series.push(new am4charts.RadarColumnSeries());
+series2.dataFields.valueX = "value";
+series2.dataFields.categoryY = "category";
+series2.clustered = false;
+series2.columns.template.strokeWidth = 0;
+series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+series2.columns.template.radarColumn.cornerRadius = 20;
+
+series2.columns.template.adapter.add("fill", function(fill, target) {
+  return chart.colors.getIndex(target.dataItem.index);
+});
+
+// Add cursor
+chart.cursor = new am4charts.RadarCursor();
+
+
+
+//CHART 5-2
+
+// Themes begin
+am4core.useTheme(am4themes_wd3gelb);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chart5-2", am4charts.RadarChart);
+
+// Add data
+chart.data = [{
+/*  "category": "Keine der genannten Möglichkeiten",
+  "value": 0.3,
+  "full": 25
+}, {
+"category": "Weiß ich nicht",
+  "value": 1.2,
+  "full": 25
+}, {*/
+"category": "Interessiert hauptsächlich AkademikerInnen",
+  "value": 8.3,
+  "full": 25
+}, {
+    "category": "Nationales Symbol",
+  "value": 4.8,
+  "full": 25
+}, {
+  "category": "Nützlich für Kinder",
+  "value": 10.6,
+  "full": 25
+}, {
+  "category": "Nachschlagewerk für spezielle Interessen",
+  "value": 13.3,
+  "full": 25
+}, {
+    "category": "Nützlich für AusländerInnen",
+  "value": 9.5,
+  "full": 25
+}, {
+  "category": "Autorität",
+  "value": 11.9,
+  "full": 25
+}, {
+  "category": "Quelle für umfassende Sprachkenntnisse",
+  "value": 19.1,
+  "full": 25
+}, {
+"category": "Nützlich für die Allgemeinheit",
+  "value": 20,
+  "full": 25
+}];
+
+// Make chart not full circle
+chart.startAngle = -90;
+chart.endAngle = 180;
+chart.innerRadius = am4core.percent(20);
+
+// Set number format
+chart.numberFormatter.numberFormat = "#.#'%'";
+
+// Create axes
+var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "category";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.grid.template.strokeOpacity = 0;
+categoryAxis.renderer.labels.template.horizontalCenter = "right";
+categoryAxis.renderer.labels.template.fontWeight = 500;
+categoryAxis.renderer.labels.template.adapter.add("fill", function(fill, target) {
+  return (target.dataItem.index >= 0) ? chart.colors.getIndex(target.dataItem.index) : fill;
+});
+categoryAxis.renderer.minGridDistance = 10;
+
+var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+valueAxis.renderer.grid.template.strokeOpacity = 0;
+valueAxis.min = 0;
+valueAxis.max = 25;
+valueAxis.strictMinMax = true;
+
+// Create series
+var series1 = chart.series.push(new am4charts.RadarColumnSeries());
+series1.dataFields.valueX = "full";
+series1.dataFields.categoryY = "category";
+series1.clustered = false;
+//series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
 series1.columns.template.fillOpacity = 0.08;
 series1.columns.template.cornerRadiusTopLeft = 20;
 series1.columns.template.strokeWidth = 0;
