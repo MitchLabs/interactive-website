@@ -313,25 +313,26 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chart1-1", am4charts.XYChart);
 
 // Add percent sign to all numbers
-chart.numberFormatter.numberFormat = "#0' Teilnehmer";
+chart.numberFormatter.numberFormat = "#.'%'";
 
 // Add data
 chart.data = [{
     "Format": "Computer",
-    "deutschland": 401,
-    "europa": 7441
+    "deutschland": 58.3,
+    "europa": 55.9
+
 }, {
     "Format": "Smartphone",
-    "deutschland": 222,
-    "europa": 3429
+    "deutschland": 13.2,
+    "europa": 12
 }, {
     "Format": "Tablet",
-    "deutschland": 76,
-    "europa": 1283
+    "deutschland": 2.6,
+    "europa": 2.5
 },{
-    "Format": "Gedruckt / Buch",
-    "deutschland": 285,
-    "europa": 5352
+    "Format": "Buch",
+    "deutschland": 25.9,
+    "europa": 29.6
 }];
 
 // Create axes
@@ -349,14 +350,14 @@ var series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.valueY = "deutschland";
 series.dataFields.categoryX = "Format";
 series.clustered = false;
-series.tooltipText = "[bold]{valueY}[/] Teilnehmer nutzen {categoryX}";
+series.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland präferieren {categoryX}";
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.dataFields.valueY = "europa";
 series2.dataFields.categoryX = "Format";
 series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
-series2.tooltipText = "[bold]{valueY}[/] Teilnehmer präferieren {categoryX}";
+series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer präferieren {categoryX}";
 
 chart.cursor = new am4charts.XYCursor();
 chart.cursor.lineX.disabled = true;
@@ -378,25 +379,25 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chart1-2", am4charts.XYChart);
 
 // Add percent sign to all numbers
-chart.numberFormatter.numberFormat = "#0' Teilnehmer";
+chart.numberFormatter.numberFormat = "#.'%'";
 
 // Add data
 chart.data = [{
     "Format": "Computer",
-    "deutschland": 266,
-    "europa": 4943
+    "deutschland": 40.8,
+    "europa": 42.5
 }, {
     "Format": "Smartphone",
-    "deutschland": 60,
-    "europa": 1058
+    "deutschland": 22.6,
+    "europa": 19.6
 }, {
     "Format": "Tablet",
-    "deutschland": 12,
-    "europa": 218
+    "deutschland": 7.7,
+    "europa": 7.3
 },{
-    "Format": "Gedruckt / Buch",
-    "deutschland": 118,
-    "europa": 2618
+    "Format": "Buch",
+    "deutschland": 29,
+    "europa": 30.6
 }];
 
 // Create axes
@@ -414,14 +415,14 @@ var series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.valueY = "deutschland";
 series.dataFields.categoryX = "Format";
 series.clustered = false;
-series.tooltipText = "[bold]{valueY}[/] Teilnehmer nutzen {categoryX}";
+series.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland nutzen {categoryX}";
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.dataFields.valueY = "europa";
 series2.dataFields.categoryX = "Format";
 series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
-series2.tooltipText = "[bold]{valueY}[/] Teilnehmer präferieren {categoryX}";
+series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer nutzen {categoryX}";
 
 chart.cursor = new am4charts.XYCursor();
 chart.cursor.lineX.disabled = true;
@@ -444,28 +445,28 @@ var chart = am4core.create("chart2", am4charts.XYChart);
 // Add data
 chart.data = [{
   "year": "Gestern oder heute",
-  "deutschland": 273,
-  "europa": 3085
+  "deutschland": 35.3,
+  "europa": 32.9
 },{
   "year": "Innerhalb der letzten Woche",
-  "deutschland": 122,
-  "europa": 2288
+  "deutschland": 28.2,
+  "europa": 24.4
 },{
   "year": "Innerhalb des letzten Monats",
-  "deutschland": 46,
-  "europa": 1724
+  "deutschland": 18.2,
+  "europa": 18.4
 },{
   "year": "Innerhalb des letzten Jahres",
-  "deutschland": 24,
-  "europa": 1032
+  "deutschland": 9.4,
+  "europa": 11
 },{
     "year": "Vor mindestens über einem Jahr" ,
-  "deutschland": 9,
-  "europa": 719
+  "deutschland": 4.2,
+  "europa": 7.7
 },{
   "year": "Noch nie",
-  "deutschland": 5,
-  "europa": 523
+  "deutschland": 4.8,
+  "europa": 5.6
 }];
 
 // Create axes
