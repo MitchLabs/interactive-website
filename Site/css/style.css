@@ -298,9 +298,10 @@ section {
 /* Flip Panel */
 /*-=-=-=-=-=-=-=-=-=-=- */
 
-.wrapper{ width: 980; margin: 0 auto; hoverflow: hidden; background-color: inherit;}
+.wrapper{ width: 980; margin: 10 auto; hoverflow: hidden; background-color: inherit;}
 
 .panel {
+  border: transparent;
   float: left;
 	margin: 0 auto;
 	height: 110px;
@@ -362,7 +363,7 @@ section {
 }
 .box1{
 	background-color: #67B7DC;
-	width: 200px;
+	width: 225px;
 	height: 150px;
 	margin: 0 auto;
   float: left;
@@ -373,7 +374,7 @@ section {
 }
 .box2{
 	background-color: #6894DC;
-	width: 200px;
+	width: 225px;
 	height: 150px;
 	margin: 0 auto;
 	padding: 20px;
