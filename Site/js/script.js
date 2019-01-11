@@ -351,7 +351,7 @@ categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.cellStartLocation = 0.1;
 categoryAxis.renderer.cellEndLocation = 0.9;
 
-var  valueAxis = chart.xAxes.push(new am4charts.ValueAxis()); 
+var  valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 valueAxis.renderer.opposite = true;
 
 // Create series
@@ -668,3 +668,14 @@ series2.columns.template.adapter.add("fill", function(fill, target) {
 
 // Add cursor
 chart.cursor = new am4charts.RadarCursor();
+
+$(document).ready(function(){
+  // set up hover panels
+  // although this can be done without JavaScript, we've attached these events
+  // because it causes the hover to be triggered when the element is tapped on a touch device
+  $('.hover').hover(function(){
+    $(this).addClass('flip');
+  },function(){
+    $(this).removeClass('flip');
+  });
+});
