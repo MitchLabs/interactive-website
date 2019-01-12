@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Wörterbuch</title>
-    
 <!--    META TAGS-->
     <meta charset="utf-8">
     <meta name="language" content="de">
@@ -10,10 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="expires" content="0">
     <meta name="format-detection" content="telephone=yes">
-    
 <!--    FAVICON-->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    
 <!--    S T Y L E S H E E T S -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
@@ -26,14 +23,10 @@
 <!--    EIGENE STYLESHEETS-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/quiz.css">
-    
 </head>
-    
 <body>
-    
 <!--    Load-Animation-->
     <div class="se-pre-con">Bitte haben Sie einen Moment Geduld ...</div>
-    
     <header>
 <!--        NAVIGATION-->
         <nav id="main-nav">
@@ -49,15 +42,14 @@
               <li><a href="#footer" class="nav09">Impressum</a></li>
           </ul>
         </nav>
-        
+<!--        DHBW LOGO-->
         <a href="#"><img src="img/dhbw_logo.svg" alt="Logo" class="logo"></a>
     </header>
-    
+<!--    VIDEO BACKGROUND STARTSEITE-->
     <video autoplay loop id="video-background" muted plays-inline>
-      <source src="img/hb.mp4" type="video/mp4">
+      <source src="img/background-video.mp4" type="video/mp4">
     </video>
-    
-<!--    MAIN-->
+<!--    S E C T I O N S   -->
     <container id="fullpage">
         <section id="HeroImage">
             <h1>Das Wörterbuch</h1>
@@ -66,8 +58,8 @@
             <p class="p_startseite mx-auto">Gebrauchsgegenstand, Streitschlichter, Spielzeug, Nationalsymbol, Arbeitshilfe?<br>Oder doch nur etwas, für das sich hauptsächlich Akademikerinnen und Akademiker interessieren?<br>Welche Rolle spielen einsprachige Wörterbücher heute?<br><br>Um unter anderen diesen Fragen nachzugehen, wurde die bis dato<br>größte europaweite Umfrage zur Wörterbuchbenutzung und -kultur durchgeführt.</p>
             <br>
             <p class="dark-text">Ein Projekt von Studierenden der dualen Hochschule Baden-Württemberg</p>
-            <br><br>
-<!--            <a href="#info" class="startbtn mx-auto">START CTA</a>-->
+            <br>
+            <br>
             <a href="#info"><div class="scroll-downs">
               <div class="mousey">
                 <div class="scroller"></div>
@@ -85,21 +77,6 @@
                 </div>
             </div>
         </section>
-
-<!--        <section id="quiz1">
-          <h3>Info</h3>
-          <hr>
-          <p>blabla</p>
-            <ul class="fragen1">
-                <li>Ich behalte und verwende es</li>
-                <li>Ich behalte es, denn es hat einem Verwandten gehört</li>
-                <li>Ich behalte es, da es sich im Regal gut machen wird</li>
-                <li>Ich spende es einer Bibliothek</li>
-                <li>Ich versuche es zu verkaufen</li>
-                <li>Ich werfe es weg</li>
-                <li>Keine der genannten Möglichkeiten</li>
-            </ul>
-        </section>-->
 
         <section id="graph1">
           <h3>Wörterbücher werden am PC benutzt</h3>
@@ -131,6 +108,7 @@
           <hr>
           <p>“Wären Sie bereit, Werbung in einem digitalen einsprachigen Wörterbuch zu akzeptieren?” - bei dieser Frage waren sich die Befragten nicht einig. Nur etwas über die Hälfte der teilnehmenden Personen hat hier positiv geantwortet.</p>
           <div id="chart4"></div>
+<!--            DIV versteckt legende und zeigt Länderkürzel an-->
             <div class="hider">
                 <ul>
                     <li>GE</li>
@@ -167,6 +145,7 @@
           <h3>Eigenschaften, die mit Wörterbüchern assoziiert werden</h3>
           <hr>
           <p>“Nützlich für die Allgemeinheit” &amp; “Quelle für umfassende Kenntnisse zum Deutschen” - dies wird grundsätzlich mit einem einsprachigen Wörterbuch in Deutschland in Verbindung gebracht, jedenfalls ist dies Ergebnis der Umfrage.</p>
+<!--            2 Spalten (Bootstrap)-->
           <div class="row">
                 <div class="col-sm-6" id="chart5-1"></div>
                 <div class="col-sm-6" id="chart5-2"></div>
@@ -183,6 +162,7 @@
             Nun stellt sich die Frage ob Sie auch dieses wegwerfen oder doch lieber behalten.
             Auch die Möglichkeit das Buch zu Spenden oder zu Verkaufen besteht.<br><br>
             <p><strong>Was würden Sie nun tun?</strong></p><br><br>
+<!--            QUIZ -->
               <div class="wrapper">
                     <div class="col_sixth">
                       <div class="hover panel">
@@ -270,11 +250,10 @@
                  </div>
               </div>
         </section>
-        
 <!--        FOOTER-->
-        
         <section id="footer">
             <footer>  
+<!--                Impressum Text-->
                 <p>
                     <b>Thema</b> Nutzung einsprachiger Wörterbücher - Umfrage<br><br>
                     <b>Quelle</b> "Eine europaweite Umfrage zu Wörterbuchbenutzung und -kultur – Ergebnisse der deutschen Teilnehmenden"<br>von Carolin Müller-Spitzer, Maria Ribeiro Silveira, Sascha Wolfer, Iztok Kosem und Robert Lew<br><br>
@@ -285,11 +264,11 @@
                     <b>Hochschule</b> DHBW Campus Mosbach, Fachbereich Onlinemedien<br><br>
                     <b>Abgabe</b> 28.01.2019
                 </p>
+<!--                Logo DHBW-->
                 <a href="http://www.mosbach.dhbw.de/startseite.html" target="_blank"><img src="img/dhbw_logo.svg" class="footerlogo"></a>
             </footer>
         </section>
     </container>
-    
 <!--    S C R I P T S -->
 <!--    QJERY-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
