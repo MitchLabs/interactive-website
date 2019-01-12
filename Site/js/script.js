@@ -1,15 +1,165 @@
 $(document).ready(function() {
+    
     //activate wow.js
      new WOW().init();
     //activate fullpage.js
     $('#fullpage').fullpage({
       scrollBar: true,
-      navigation: true,
+      navigation: false,
       //navigationTooltips: ['Slide 1', 'Slide 2', 'Slide 3', 'Slide 4'],
       //loopBottom: true,
       sectionSelector: 'section'
     });
+    
+    $(".se-pre-con").fadeOut('slow');
+    
 });
+
+$('.hover').click(function(){
+    $(this).addClass('flip');
+});
+
+
+//Aktiver Link in Navigation markieren
+
+  $(window).scroll(function() {
+    var scrollPos = $(window).scrollTop();
+    var page1Top = $("#HeroImage").offset().top;
+    var page2Top = $("#info").offset().top;
+    var page3Top = $("#graph1").offset().top;
+      var page4Top = $("#graph2").offset().top;
+    var page5Top = $("#graph3").offset().top;
+      var page6Top = $("#graph4").offset().top;
+    var page7Top = $("#graph5").offset().top;
+      var page8Top = $("#quiz").offset().top;
+    var page9Top = $("#footer").offset().top;
+
+    if (scrollPos >= page1Top && scrollPos < page2Top) {
+      $(".nav01").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav01").removeClass("active");
+    }
+      
+      if (scrollPos >= page2Top && scrollPos < page3Top) {
+      $(".nav02").addClass("active");
+      $(".nav01").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav02").removeClass("active");
+    }
+      
+      if (scrollPos >= page3Top && scrollPos < page4Top) {
+      $(".nav03").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav01").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav03").removeClass("active");
+    }
+      
+      if (scrollPos >= page4Top && scrollPos < page5Top) {
+      $(".nav04").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav01").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav04").removeClass("active");
+    }
+      
+      if (scrollPos >= page5Top && scrollPos < page6Top) {
+      $(".nav05").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav01").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav05").removeClass("active");
+    }
+      
+      if (scrollPos >= page6Top && scrollPos < page7Top) {
+      $(".nav06").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav01").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav06").removeClass("active");
+    }
+      
+      if (scrollPos >= page7Top && scrollPos < page8Top) {
+      $(".nav07").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav01").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav07").removeClass("active");
+    }
+      
+      if (scrollPos >= page8Top - 10 && scrollPos < page9Top) {
+      $(".nav08").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav01").removeClass("active");
+      $(".nav09").removeClass("active");
+    } else {
+      $(".nav08").removeClass("active");
+    }
+      
+      if (scrollPos >= page9Top) {
+      $(".nav09").addClass("active");
+      $(".nav02").removeClass("active");
+      $(".nav03").removeClass("active");
+        $(".nav04").removeClass("active");
+      $(".nav05").removeClass("active");
+        $(".nav06").removeClass("active");
+      $(".nav07").removeClass("active");
+        $(".nav08").removeClass("active");
+      $(".nav01").removeClass("active");
+    } else {
+      $(".nav09").removeClass("active");
+    }
+  });
 
 //COLOR THEME
 
@@ -317,10 +467,9 @@ chart.numberFormatter.numberFormat = "#.'%'";
 
 // Add data
 chart.data = [{
-    "Format": "Computer",
-    "deutschland": 58.3,
-    "europa": 55.9
-
+    "Format": "Buch",
+    "deutschland": 25.9,
+    "europa": 29.6
 }, {
     "Format": "Smartphone",
     "deutschland": 13.2,
@@ -330,19 +479,19 @@ chart.data = [{
     "deutschland": 2.6,
     "europa": 2.5
 },{
-    "Format": "Buch",
-    "deutschland": 25.9,
-    "europa": 29.6
+    "Format": "Computer",
+    "deutschland": 58.3,
+    "europa": 55.9
 }];
 
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "Format";
 categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.minGridDistance = 30;
+categoryAxis.renderer.minGridDistance = 60;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = "Präferiertes Format";
+valueAxis.title.text = "";
 valueAxis.title.fontWeight = 800;
 
 // Create series
@@ -383,9 +532,9 @@ chart.numberFormatter.numberFormat = "#.'%'";
 
 // Add data
 chart.data = [{
-    "Format": "Computer",
-    "deutschland": 40.8,
-    "europa": 42.5
+    "Format": "Buch",
+    "deutschland": 29,
+    "europa": 30.6
 }, {
     "Format": "Smartphone",
     "deutschland": 22.6,
@@ -395,19 +544,19 @@ chart.data = [{
     "deutschland": 7.7,
     "europa": 7.3
 },{
-    "Format": "Buch",
-    "deutschland": 29,
-    "europa": 30.6
+    "Format": "Computer",
+    "deutschland": 40.8,
+    "europa": 42.5
 }];
 
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "Format";
 categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.minGridDistance = 30;
+categoryAxis.renderer.minGridDistance = 60;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = "Tatsächlich genutztes Format";
+valueAxis.title.text = "";
 valueAxis.title.fontWeight = 800;
 
 // Create series
@@ -507,8 +656,8 @@ function createSeries(field, name) {
   categoryLabel.label.truncate = false;
 }
 
-createSeries("deutschland", "Deutschland");
-createSeries("europa", "Europa");
+createSeries("deutschland", "D");
+createSeries("europa", "EUR");
 
 
 //* * * * *
@@ -600,9 +749,9 @@ chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
   {
-    country: "Österreich",
-    yes: 130,
-    no: 138
+    country: "Georgien",
+    yes: 451,
+    no: 56  
   },
   {
     country: "Baskenland",
@@ -610,59 +759,34 @@ chart.data = [
     no: 48
   },
   {
-    country: "Belgien",
-    yes: 90,
-    no: 196
-  },
-  {
-    country: "Brasilien",
-    yes: 122,
-    no: 152
-  },
-  {
-    country: "Kroatien",
-    yes: 214,
-    no: 302
+    country: "Mazedonien",
+    yes: 113,
+    no: 67
   },
   {
     country: "Tschechische Republik",
     yes: 84,
     no: 62
   },
-    {
-    country: "Dänemark",
-    yes: 172,
-    no: 233
-  },
-  {
-    country: "Estland",
-    yes: 96,
-    no: 371
-  },
-  {
-    country: "Finnland",
-    yes: 120,
-    no: 177
-  },
-  {
-    country: "Frankreich",
-    yes: 60,
-    no: 178
-  },
-  {
-    country: "Georgien",
-    yes: 451,
-    no: 56
-  },
   {
     country: "Deutschland",
     yes: 256,
     no: 221
   },
+  {
+    country: "Großbritannien & Irland",
+    yes: 87,
+    no: 82
+  },
+  {
+    country: "Österreich",
+    yes: 130,
+    no: 138
+  },
     {
-    country: "Griechenland",
-    yes: 271,
-    no: 558
+    country: "Polen",
+    yes: 314,
+    no: 334
   },
   {
     country: "Israel",
@@ -670,14 +794,24 @@ chart.data = [
     no: 76
   },
   {
-    country: "Italien",
-    yes: 113,
-    no: 172
+    country: "Brasilien",
+    yes: 122,
+    no: 152
   },
   {
-    country: "Mazedonien",
-    yes: 113,
-    no: 67
+    country: "Spanien",
+    yes: 131,
+    no: 166
+  },
+  {
+    country: "Dänemark",
+    yes: 172,
+    no: 233
+  },
+  {
+    country: "Kroatien",
+    yes: 214,
+    no: 302
   },
   {
     country: "Niederlande",
@@ -685,14 +819,19 @@ chart.data = [
     no: 77
   },
   {
-    country: "Norwegen",
-    yes: 142,
-    no: 277
+    country: "Finnland",
+    yes: 120,
+    no: 177
   },
-    {
-    country: "Polen",
-    yes: 314,
-    no: 334
+  {
+    country: "Serbien",
+    yes: 118,
+    no: 175
+  },
+  {
+    country: "Italien",
+    yes: 113,
+    no: 172
   },
   {
     country: "Portugal",
@@ -705,9 +844,14 @@ chart.data = [
     no: 551
   },
   {
-    country: "Serbien",
-    yes: 118,
-    no: 175
+    country: "Norwegen",
+    yes: 142,
+    no: 277
+  },
+  {
+    country: "Griechenland",
+    yes: 271,
+    no: 558
   },
   {
     country: "Slowenien",
@@ -715,19 +859,24 @@ chart.data = [
     no: 416
   },
   {
-    country: "Spanien",
-    yes: 131,
-    no: 166
+    country: "Belgien",
+    yes: 90,
+    no: 196
   },
-    {
+  {
     country: "Schweden",
     yes: 34,
     no: 78
   },
   {
-    country: "Großbritannien & Irland",
-    yes: 87,
-    no: 82
+    country: "Frankreich",
+    yes: 60,
+    no: 178
+  },
+  {
+    country: "Estland",
+    yes: 96,
+    no: 371
   }
 ];
 
@@ -751,7 +900,7 @@ valueAxis.renderer.minWidth = 50;
 var series1 = chart.series.push(new am4charts.ColumnSeries());
 series1.columns.template.width = am4core.percent(80);
 series1.columns.template.tooltipText =
-  "{name}: {valueY.totalPercent.formatNumber('#.0')}%";
+  "In [bold]{country}[/] antworteten [bold]{valueY.totalPercent.formatNumber('#.0')}%[/] der Befragten mit [bold]{name}[/]";
 series1.name = "Ja";
 series1.dataFields.categoryX = "country";
 series1.dataFields.valueY = "yes";
@@ -768,7 +917,7 @@ bullet1.locationY = 0.5;
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.columns.template.width = am4core.percent(80);
 series2.columns.template.tooltipText =
-  "{name}: {valueY.totalPercent.formatNumber('#.0')}%";
+  "In [bold]{country}[/] antworteten [bold]{valueY.totalPercent.formatNumber('#.0')}%[/] der Befragten mit [bold]{name}[/]";
 series2.name = "Nein";
 series2.dataFields.categoryX = "country";
 series2.dataFields.valueY = "no";
@@ -778,11 +927,11 @@ series2.stacked = true;
 series2.tooltip.pointerOrientation = "vertical";
 
 var bullet2 = series2.bullets.push(new am4charts.LabelBullet());
-bullet2.label.text = "{valueY.totalPercent.formatNumber('#.')}%";
+bullet2.label.text = "";
 bullet2.locationY = 0.5;
 bullet2.label.fill = am4core.color("#ffffff");
 
-chart.scrollbarX = new am4core.Scrollbar();
+//chart.scrollbarX = new am4core.Scrollbar();
 
 
 //* * * * *
