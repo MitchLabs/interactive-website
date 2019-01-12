@@ -153,6 +153,10 @@ header li > a:hover, header li > a:focus {
 
 /**** STARTSEITE ***/
 
+#HeroImage {
+    background-color: transparent;
+}
+
 #video-background {
     position: fixed;
     right: 0; 
