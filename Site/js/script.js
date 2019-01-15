@@ -665,73 +665,81 @@ createSeries("europa", "EUR");
 
 //chart3
 
-// Themes begin
-am4core.useTheme(am4themes_wd3);
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart = am4core.create("chart3", am4charts.PieChart);
-
-// Let's cut a hole in our Pie chart the size of 40% the radius
-chart.innerRadius = am4core.percent(40);
-
-// Add data
-chart.data = [{
-  "antwort": "Ja, sie sind kulturelles Erbe",
-  "deutschland": 219,
-  "europa": 4618
-}, {
-  "antwort": "Ja, sie helfen der Öffentlichkeit",
-  "deutschland": 197,
-  "europa": 3209
-}, {
-  "antwort": "Ja, aber es gibt z. Z. wichtigere Dinge",
-  "deutschland": 33,
-  "europa": 612
-}, {
-  "antwort": "Ja, aus einem anderen Grund",
-  "deutschland": 10,
-  "europa": 320
-}, {
-  "antwort": "Nein, private Hersteller bieten gute Wörterbücher an",
-  "deutschland": 8,
-  "europa": 300
-}, {
-  "antwort": "Nein, es gibt wichtigere Dinge, die finanziert werden sollten",
-  "deutschland": 9,
-  "europa": 177
-}, {
-  "antwort": "Nein, aus einem anderen Grund",
-  "deutschland": 3,
-  "europa": 131
-}];
-
-// Add and configure Series
-var pieSeries = chart.series.push(new am4charts.PieSeries());
-pieSeries.dataFields.value = "deutschland";
-pieSeries.dataFields.category = "antwort";
-pieSeries.slices.template.stroke = am4core.color("#6C7178");
-pieSeries.slices.template.strokeWidth = 1;
-pieSeries.slices.template.strokeOpacity = 1;
-
-// Disabling labels and ticks on inner circle
-pieSeries.labels.template.disabled = true;
-pieSeries.ticks.template.disabled = true;
-
-// Disable sliding out of slices
-pieSeries.slices.template.states.getKey("hover").properties.shiftRadius = 0;
-pieSeries.slices.template.states.getKey("hover").properties.scale = 0.9;
-
-// Add second series
-var pieSeries2 = chart.series.push(new am4charts.PieSeries());
-pieSeries2.dataFields.value = "europa";
-pieSeries2.dataFields.category = "antwort";
-pieSeries2.slices.template.stroke = am4core.color("#6C7178");
-pieSeries2.slices.template.strokeWidth = 1;
-pieSeries2.slices.template.strokeOpacity = 1;
-pieSeries2.slices.template.states.getKey("hover").properties.shiftRadius = 0;
-pieSeries2.slices.template.states.getKey("hover").properties.scale = 1.1;
+//    MOUSE ON CHART
+    
+    $('.answ-1').hover(function() {
+        $('.a-1').addClass('active_answer');
+    }); $('.answ-1').mouseleave(function() {
+        $('.a-1').removeClass('active_answer');
+    });
+    $('.answ-2').hover(function() {
+        $('.a-2').addClass('active_answer');
+    }); $('.answ-2').mouseleave(function() {
+        $('.a-2').removeClass('active_answer');
+    });
+    $('.answ-3').hover(function() {
+        $('.a-3').addClass('active_answer');
+    }); $('.answ-3').mouseleave(function() {
+        $('.a-3').removeClass('active_answer');
+    });
+    $('.answ-4').hover(function() {
+        $('.a-4').addClass('active_answer');
+    }); $('.answ-4').mouseleave(function() {
+        $('.a-4').removeClass('active_answer');
+    });
+    $('.answ-5').hover(function() {
+        $('.a-5').addClass('active_answer');
+    }); $('.answ-5').mouseleave(function() {
+        $('.a-5').removeClass('active_answer');
+    });
+    $('.answ-6').hover(function() {
+        $('.a-6').addClass('active_answer');
+    }); $('.answ-6').mouseleave(function() {
+        $('.a-6').removeClass('active_answer');
+    });
+    $('.answ-7').hover(function() {
+        $('.a-7').addClass('active_answer');
+    }); $('.answ-7').mouseleave(function() {
+        $('.a-7').removeClass('active_answer');
+    });
+    
+//    MOUSE ON TEXT 
+    
+    $('.a-1').hover(function() {
+        $('.answ-1').addClass('active_chart');
+    }); $('.a-1').mouseleave(function() {
+        $('.answ-1').removeClass('active_chart');
+    });
+    $('.a-2').hover(function() {
+        $('.answ-2').addClass('active_chart');
+    }); $('.a-2').mouseleave(function() {
+        $('.answ-2').removeClass('active_chart');
+    });
+    $('.a-3').hover(function() {
+        $('.answ-3').addClass('active_chart');
+    }); $('.a-3').mouseleave(function() {
+        $('.answ-3').removeClass('active_chart');
+    });
+    $('.a-4').hover(function() {
+        $('.answ-4').addClass('active_chart');
+    }); $('.a-4').mouseleave(function() {
+        $('.answ-4').removeClass('active_chart');
+    });
+    $('.a-5').hover(function() {
+        $('.answ-5').addClass('active_chart');
+    }); $('.a-5').mouseleave(function() {
+        $('.answ-5').removeClass('active_chart');
+    });
+    $('.a-6').hover(function() {
+        $('.answ-6').addClass('active_chart');
+    }); $('.a-6').mouseleave(function() {
+        $('.answ-6').removeClass('active_chart');
+    });
+    $('.a-7').hover(function() {
+        $('.answ-7').addClass('active_chart');
+    }); $('.a-7').mouseleave(function() {
+        $('.answ-7').removeClass('active_chart');
+    });
 
 
 //* * * * *
