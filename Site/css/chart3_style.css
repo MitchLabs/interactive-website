@@ -33,11 +33,10 @@
 }
 /*DEUTSCHLAND*/
 
-.de-wrapper {
+.de-wrapper, .eu-wrapper {
     height: 100%;
     width: 8.5rem;
     margin: 2rem;
-    cursor: crosshair;
     margin: auto;
     text-align: center;
 }
@@ -117,16 +116,6 @@
 }
 
 /*EUROPA*/
-
-.eu-wrapper {
-    height: 100%;
-    width: 8rem;
-    margin: 2rem;
-    color: white;
-    cursor: crosshair;
-    margin: auto;
-    text-align: center;
-}
 
 .eu-color:nth-child(odd) {background-color: #434685;}
 .eu-color:nth-child(even) {background-color: #272A68;}

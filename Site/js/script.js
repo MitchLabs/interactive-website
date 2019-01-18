@@ -46,6 +46,7 @@ $('.hover').click(function(){
       $(".nav07").removeClass("active");
         $(".nav08").removeClass("active");
       $(".nav09").removeClass("active");
+        
     } else {
       $(".nav01").removeClass("active");
     }
@@ -102,6 +103,7 @@ $('.hover').click(function(){
       $(".nav07").removeClass("active");
         $(".nav08").removeClass("active");
       $(".nav09").removeClass("active");
+          
     } else {
       $(".nav05").removeClass("active");
     }
@@ -612,7 +614,7 @@ chart.data = [{
 // Create axes
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "year";
-categoryAxis.numberFormatter.numberFormat = "#";
+categoryAxis.numberFormatter.numberFormat = "#'%'";
 categoryAxis.renderer.inversed = true;
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.cellStartLocation = 0.1;
@@ -642,7 +644,7 @@ function createSeries(field, name) {
   categoryLabel.label.text = "{name}";
   categoryLabel.label.horizontalCenter = "right";
   categoryLabel.label.dx = -10;
-  categoryLabel.label.fill = am4core.color("#fff");
+  categoryLabel.label.fill = am4core.color("#e9e9e9");
   categoryLabel.label.hideOversized = false;
   categoryLabel.label.truncate = false;
 }
