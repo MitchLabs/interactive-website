@@ -224,7 +224,6 @@ function am4themes_wd3gelb(target) {
             target.setFor("secondaryButtonStroke", am4core.color("#6C7178"));
         }
 }
-
 //MAP
 
 // Themes begin
@@ -949,7 +948,6 @@ bullet2.label.fill = am4core.color("#ffffff");
 
 // Themes begin
 am4core.useTheme(am4themes_wd3gelb);
-am4core.useTheme(am4themes_animated);
 // Themes end
 
 // Create chart instance
@@ -957,43 +955,36 @@ var chart = am4core.create("chart5-1", am4charts.RadarChart);
 
 // Add data
 chart.data = [{
-/*  "category": "Keine der genannten Möglichkeiten",
-  "value": 0.3,
-  "full": 25
-}, {
-"category": "Weiß ich nicht",
-  "value": 1.2,
-  "full": 25
-}, {*/
-"category": "Interessiert hauptsächlich AkademikerInnen",
+
+"category": "Interessiert hauptsächlich AkademikerInnen: [bold]5,3%[/]",
   "value": 5.3,
   "full": 25
 }, {
-    "category": "Nationales Symbol",
+    "category": "Nationales Symbol: [bold]5,8%[/]",
   "value": 5.8,
   "full": 25
 }, {
-  "category": "Nützlich für Kinder",
+  "category": "Nützlich für Kinder: [bold]8%[/]",
   "value": 8,
   "full": 25
 }, {
-  "category": "Nachschlagewerk für spezielle Interessen",
+  "category": "Nachschlagewerk für spezielle Interessen: [bold]9%[/]",
   "value": 9,
   "full": 25
 }, {
-    "category": "Nützlich für AusländerInnen",
+    "category": "Nützlich für AusländerInnen: [bold]11,4%[/]",
   "value": 11.4,
   "full": 25
 }, {
-  "category": "Autorität",
+  "category": "Autorität: [bold]13,5%[/]",
   "value": 13.5,
   "full": 25
 }, {
-  "category": "Quelle für umfassende Sprachkenntnisse",
+  "category": "Quelle für umfassende Sprachkenntnisse: [bold]22,4%[/]",
   "value": 22.4,
   "full": 25
 }, {
-"category": "Nützlich für die Allgemeinheit",
+"category": "Nützlich für die Allgemeinheit: [bold]23,1%[/]",
   "value": 23.1,
   "full": 25
 }];
@@ -1040,119 +1031,9 @@ series2.dataFields.valueX = "value";
 series2.dataFields.categoryY = "category";
 series2.clustered = false;
 series2.columns.template.strokeWidth = 0;
-series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+series2.columns.template.tooltipText = "{category}";
 series2.columns.template.radarColumn.cornerRadius = 20;
 
 series2.columns.template.adapter.add("fill", function(fill, target) {
   return chart.colors.getIndex(target.dataItem.index);
 });
-
-// Add cursor
-chart.cursor = new am4charts.RadarCursor();
-
-
-
-//CHART 5-2
-
-// Themes begin
-am4core.useTheme(am4themes_wd3gelb);
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart = am4core.create("chart5-2", am4charts.RadarChart);
-
-// Add data
-chart.data = [{
-/*  "category": "Keine der genannten Möglichkeiten",
-  "value": 0.3,
-  "full": 25
-}, {
-"category": "Weiß ich nicht",
-  "value": 1.2,
-  "full": 25
-}, {*/
-"category": "Interessiert hauptsächlich AkademikerInnen",
-  "value": 8.3,
-  "full": 25
-}, {
-    "category": "Nationales Symbol",
-  "value": 4.8,
-  "full": 25
-}, {
-  "category": "Nützlich für Kinder",
-  "value": 10.6,
-  "full": 25
-}, {
-  "category": "Nachschlagewerk für spezielle Interessen",
-  "value": 13.3,
-  "full": 25
-}, {
-    "category": "Nützlich für AusländerInnen",
-  "value": 9.5,
-  "full": 25
-}, {
-  "category": "Autorität",
-  "value": 11.9,
-  "full": 25
-}, {
-  "category": "Quelle für umfassende Sprachkenntnisse",
-  "value": 19.1,
-  "full": 25
-}, {
-"category": "Nützlich für die Allgemeinheit",
-  "value": 20,
-  "full": 25
-}];
-
-// Make chart not full circle
-chart.startAngle = -90;
-chart.endAngle = 180;
-chart.innerRadius = am4core.percent(20);
-
-// Set number format
-chart.numberFormatter.numberFormat = "#.#'%'";
-
-// Create axes
-var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "category";
-categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.grid.template.strokeOpacity = 0;
-categoryAxis.renderer.labels.template.horizontalCenter = "right";
-categoryAxis.renderer.labels.template.fontWeight = 500;
-categoryAxis.renderer.labels.template.adapter.add("fill", function(fill, target) {
-  return (target.dataItem.index >= 0) ? chart.colors.getIndex(target.dataItem.index) : fill;
-});
-categoryAxis.renderer.minGridDistance = 10;
-
-var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-valueAxis.renderer.grid.template.strokeOpacity = 0;
-valueAxis.min = 0;
-valueAxis.max = 25;
-valueAxis.strictMinMax = true;
-
-// Create series
-var series1 = chart.series.push(new am4charts.RadarColumnSeries());
-series1.dataFields.valueX = "full";
-series1.dataFields.categoryY = "category";
-series1.clustered = false;
-//series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
-series1.columns.template.fillOpacity = 0.08;
-series1.columns.template.cornerRadiusTopLeft = 20;
-series1.columns.template.strokeWidth = 0;
-series1.columns.template.radarColumn.cornerRadius = 20;
-
-var series2 = chart.series.push(new am4charts.RadarColumnSeries());
-series2.dataFields.valueX = "value";
-series2.dataFields.categoryY = "category";
-series2.clustered = false;
-series2.columns.template.strokeWidth = 0;
-series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
-series2.columns.template.radarColumn.cornerRadius = 20;
-
-series2.columns.template.adapter.add("fill", function(fill, target) {
-  return chart.colors.getIndex(target.dataItem.index);
-});
-
-// Add cursor
-chart.cursor = new am4charts.RadarCursor();

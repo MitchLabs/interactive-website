@@ -99,6 +99,30 @@ hr {
     border: 0;
 }
 
+.legende {
+    display: block;
+    color: #E9E9E9;
+    font-size: 1.2rem;
+    background-color: #6C7178;
+    padding: .5rem;
+    max-width: 25%;
+    margin: 0 auto;
+}
+
+.legende > .gelb {
+    color: #f9d767;
+}
+
+.legende > .blau {
+    color: #434685;
+    margin-left: 3rem;
+}
+
+.legende > .hellblau {
+    color: #9395BF;
+    margin-left: 3rem;
+}
+
 /**** header***/
 
 header {
@@ -300,15 +324,15 @@ section {
 
 #chart5-1 {
     max-width: 100%;
-    margin: 35px auto;
-    height: 65vh;
+    margin: 30px auto 20px auto;
+    height: 60vh;
     font-size: 1.4rem;
 }
 
 #chart5-2 {
     max-width: 100%;
-    margin: 35px auto;
-    height: 65vh;
+    margin: 30px auto 20px auto;
+    height: 60vh;
     font-size: 1.4rem;
 }
 
