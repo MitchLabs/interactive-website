@@ -94,7 +94,7 @@
 }
 
 .box1{
-    background-color: #f9d767;
+    background-color: #FFE48E;
     width: 225px;
     height: 225px;
     margin: 0 auto;
@@ -108,12 +108,13 @@
 }
 
 .box1:hover {
-    background-color: #FFE48E;
+    background-color: #f9d767;
 }
 
 .box1 i {
     font-size: 3rem;
     margin-top: 2rem;
+    color: #967928;
 }
 
 .box2{
@@ -126,6 +127,10 @@
     cursor: pointer;
 }
 
+.activepanel {
+    border: 2px solid #FFE48E;
+}
+
 .box1 > p {
     color: #35393f;
 }
@@ -133,4 +138,9 @@
 .box2 strong {
     font-size: 5rem;
     line-height: 6rem;
+}
+
+.bigger {
+    font-size: 3rem;
+    font-weight: bold;
 }

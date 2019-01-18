@@ -16,8 +16,9 @@ $(document).ready(function() {
 });
 
 $('.hover').click(function(){
-    $('.panel').removeClass('flip');
-    $(this).toggleClass('flip');
+    $('.panel').toggleClass('flip');
+    $('.box2').removeClass('activepanel');
+    $('.box2', this).addClass('activepanel');
 });
 
 
@@ -509,6 +510,7 @@ series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
 series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer präferieren {categoryX}";
 
+chart.cursor = new am4charts.XYCursor();
 
 //CHART 1-2
 
@@ -567,6 +569,7 @@ series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
 series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer nutzen {categoryX}";
 
+chart.cursor = new am4charts.XYCursor();
 
 // Chart 2
 
@@ -1011,9 +1014,9 @@ series1.dataFields.categoryY = "category";
 series1.clustered = false;
 //series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
 series1.columns.template.fillOpacity = 0.08;
-series1.columns.template.cornerRadiusTopLeft = 20;
+series1.columns.template.cornerRadiusTopLeft = 0;
 series1.columns.template.strokeWidth = 0;
-series1.columns.template.radarColumn.cornerRadius = 20;
+series1.columns.template.radarColumn.cornerRadius = 0;
 
 var series2 = chart.series.push(new am4charts.RadarColumnSeries());
 series2.dataFields.valueX = "value";
@@ -1021,7 +1024,7 @@ series2.dataFields.categoryY = "category";
 series2.clustered = false;
 series2.columns.template.strokeWidth = 0;
 series2.columns.template.tooltipText = "{category}";
-series2.columns.template.radarColumn.cornerRadius = 20;
+series2.columns.template.radarColumn.cornerRadius = 0;
 
 series2.columns.template.adapter.add("fill", function(fill, target) {
   return chart.colors.getIndex(target.dataItem.index);
