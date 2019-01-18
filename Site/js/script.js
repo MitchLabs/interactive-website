@@ -16,7 +16,8 @@ $(document).ready(function() {
 });
 
 $('.hover').click(function(){
-    $(this).addClass('flip');
+    $('.panel').removeClass('flip');
+    $(this).toggleClass('flip');
 });
 
 
@@ -202,15 +203,15 @@ function am4themes_map(target) {
 
 function am4themes_wd3gelb(target) {
         target.list = [
-            am4core.color("#E8CF88"),
+            am4core.color("#FFE48E"),
             am4core.color("#f9d767"),
-            am4core.color("#E8CF88"),
+            am4core.color("#FFE48E"),
             am4core.color("#f9d767"),
-            am4core.color("#E8CF88"),
+            am4core.color("#FFE48E"),
             am4core.color("#f9d767"),
-            am4core.color("#E8CF88"),
+            am4core.color("#FFE48E"),
             am4core.color("#f9d767"),
-            am4core.color("#E8CF88"),
+            am4core.color("#FFE48E"),
             am4core.color("#f9d767")
         ];
         if (target instanceof am4core.InterfaceColorSet) {
@@ -224,6 +225,7 @@ function am4themes_wd3gelb(target) {
             target.setFor("secondaryButtonStroke", am4core.color("#6C7178"));
         }
 }
+
 //MAP
 
 // Themes begin
