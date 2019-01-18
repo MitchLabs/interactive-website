@@ -507,16 +507,9 @@ series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
 series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer präferieren {categoryX}";
 
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.lineX.disabled = true;
-chart.cursor.lineY.disabled = true;
-
-
-
-//* * * * *
-
 
 //CHART 1-2
+
 
 // Themes begin
 am4core.useTheme(am4themes_wd3);
@@ -572,15 +565,9 @@ series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
 series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer nutzen {categoryX}";
 
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.lineX.disabled = true;
-chart.cursor.lineY.disabled = true;
-
-
-//* * * * *
-
 
 // Chart 2
+
 
 // Themes begin
 am4core.useTheme(am4themes_wd3);
