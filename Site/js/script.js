@@ -21,6 +21,15 @@ $('.hover').click(function(){
     $('.box2', this).addClass('activepanel');
 });
 
+    //Flip-function
+$('.quizbtn').click(function(e) {
+  e.preventDefault();
+  $('.flip-box').addClass('flipped');
+});
+$('.quizbtn-back').click(function(e) {
+  e.preventDefault();
+  $('.flip-box').removeClass('flipped');
+});
 
 //Aktiver Link in Navigation markieren
 
@@ -195,6 +204,7 @@ function am4themes_map(target) {
         if (target instanceof am4core.InterfaceColorSet) {
             target.setFor("text", am4core.color("#35393F"));
             target.setFor("grid", am4core.color("#B6B7BA"));
+            target.setFor("name", am4core.color("#e9e9e9"));
             target.setFor("secondaryButton", am4core.color("#51565E"));
             target.setFor("secondaryButtonHover", am4core.color("#f9d767").lighten(-0.2));
             target.setFor("secondaryButtonDown", am4core.color("#35393F").lighten(-0.2));
@@ -308,7 +318,7 @@ var groupData = [
       }, {
         "title": "Spanien",
         "id": "ES",
-        "customData": "297 + 132"
+        "customData": "429"
       }, {
         "title": "Griechenland",
         "id": "GR",
@@ -354,10 +364,10 @@ var groupData = [
         "id": "GE",
         "customData": "507"
          }, {
-           "title": "Brasilien",
-           "id": "BR",
-           "customData": "507"
-            }, {
+       "title": "Brasilien",
+       "id": "BR",
+       "customData": "507"
+        }, {
         "title": "Norwegen",
         "id": "NO",
         "customData": "420"
@@ -369,7 +379,6 @@ var groupData = [
         "title": "Israel",
         "id": "IL",
         "customData": "507"
-
         }, {
         "title": "Kroatien",
         "id": "HR",
@@ -453,9 +462,6 @@ chart.legend.contentAlign = "left";
 chart.legend.itemContainers.template.interactionsEnabled = false;
 
 
-//* * * * *
-
-
 //CHART 1-1
 
 // Themes begin
@@ -503,19 +509,17 @@ var series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.valueY = "deutschland";
 series.dataFields.categoryX = "Format";
 series.clustered = false;
-series.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland präferieren {categoryX}";
+series.columns.template.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland präferieren {categoryX}";
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.dataFields.valueY = "europa";
 series2.dataFields.categoryX = "Format";
 series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
-series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer präferieren {categoryX}";
+series2.columns.template.tooltipText = "[bold]{valueY}[/] aller Teilnehmer präferieren {categoryX}";
 
-chart.cursor = new am4charts.XYCursor();
 
 //CHART 1-2
-
 
 // Themes begin
 am4core.useTheme(am4themes_wd3);
@@ -562,19 +566,17 @@ var series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.valueY = "deutschland";
 series.dataFields.categoryX = "Format";
 series.clustered = false;
-series.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland nutzen {categoryX}";
+series.columns.template.tooltipText = "[bold]{valueY}[/] aller Teilnehmer in Deutschland nutzen {categoryX}";
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
 series2.dataFields.valueY = "europa";
 series2.dataFields.categoryX = "Format";
 series2.clustered = false;
 series2.columns.template.width = am4core.percent(50);
-series2.tooltipText = "[bold]{valueY}[/] aller Teilnehmer nutzen {categoryX}";
+series2.columns.template.tooltipText = "[bold]{valueY}[/] aller Teilnehmer nutzen {categoryX}";
 
-chart.cursor = new am4charts.XYCursor();
 
 // Chart 2
-
 
 // Themes begin
 am4core.useTheme(am4themes_wd3);
@@ -629,7 +631,7 @@ function createSeries(field, name) {
   series.dataFields.valueX = field;
   series.dataFields.categoryY = "year";
   series.name = name;
-  series.columns.template.tooltipText = "{name}: [bold]{valueX}[/]";
+  series.columns.template.tooltipText = "{name}: [bold]{valueX}[/] der Befragten gaben an [bold]{year}[/] ein Wörterbuch benutzt zu haben.";
   series.columns.template.height = am4core.percent(100);
   series.sequencedInterpolation = true;
 
@@ -1031,3 +1033,108 @@ series2.columns.template.radarColumn.cornerRadius = 0;
 series2.columns.template.adapter.add("fill", function(fill, target) {
   return chart.colors.getIndex(target.dataItem.index);
 });
+
+
+// Q U I Z
+
+am4core.useTheme(am4themes_wd3);
+am4core.useTheme(am4themes_animated);
+// create chart instance
+var quiz = am4core.create("quizChart", am4charts.XYChart);
+
+// Add data
+quiz.data = [{
+  "antwort": "Ich behalte und verwende es",
+  "de-wert": -40.1,
+  "eu-wert": 58.5
+}, {
+  "antwort": "Ich behalte es, da es sich im Regal gut machen wird",
+  "de-wert": -17.3,
+  "eu-wert": 6.3
+}, {
+  "antwort": "Ich spende es einer Bibliothek",
+  "de-wert": -10.9,
+  "eu-wert": 9.9
+}, {
+  "antwort": "Ich werfe es weg",
+  "de-wert": -9.4,
+  "eu-wert": 3.1
+}, {
+  "antwort": "Keine der genannten Möglichkeiten",
+  "de-wert": -8.6,
+  "eu-wert": 6.3
+}, {
+  "antwort": "Ich versuche, es zu verkaufen",
+  "de-wert": -7.3,
+  "eu-wert": 2.3
+}, {
+  "antwort": "Ich behalte es, denn es hat meinem Verwandten gehört",
+  "de-wert": -6.5,
+  "eu-wert": 13.4
+}];
+
+// Use only absolute numbers
+quiz.numberFormatter.numberFormat = "#.#s";
+// Create axes
+var categoryAxis = quiz.yAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "antwort";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.inversed = true;
+
+var valueAxis = quiz.xAxes.push(new am4charts.ValueAxis());
+valueAxis.extraMin = 0.1;
+valueAxis.extraMax = 0.1;
+valueAxis.renderer.minGridDistance = 40;
+valueAxis.renderer.ticks.template.length = 5;
+valueAxis.renderer.ticks.template.disabled = false;
+valueAxis.renderer.ticks.template.strokeOpacity = 0.4;
+valueAxis.renderer.labels.template.adapter.add("text", function(text) {
+  return text == "DE" || text == "EUR" ? text : text + "%";
+})
+
+// Create series
+var deutschland = quiz.series.push(new am4charts.ColumnSeries());
+deutschland.dataFields.valueX = "de-wert";
+deutschland.dataFields.categoryY = "antwort";
+deutschland.clustered = false;
+deutschland.columns.template.tooltipText = "[bold]{de-wert}%[/] der deutschen Teilnehmer antworteten: '[bold]{antwort}[/].'";
+
+var deutschlandLabel = deutschland.bullets.push(new am4charts.LabelBullet());
+deutschlandLabel.label.text = "{valueX}%";
+deutschlandLabel.label.hideOversized = false;
+deutschlandLabel.label.truncate = false;
+deutschlandLabel.label.horizontalCenter = "right";
+deutschlandLabel.label.dx = -10;
+
+var europa = quiz.series.push(new am4charts.ColumnSeries());
+europa.dataFields.valueX = "eu-wert";
+europa.dataFields.categoryY = "antwort";
+europa.clustered = false;
+europa.columns.template.tooltipText = "[bold]{eu-wert}%[/] aller Teilnehmer antworteten: '[bold]{antwort}[/]'.";
+
+var europaLabel = europa.bullets.push(new am4charts.LabelBullet());
+europaLabel.label.text = "{valueX}%";
+europaLabel.label.hideOversized = false;
+europaLabel.label.truncate = false;
+europaLabel.label.horizontalCenter = "left";
+europaLabel.label.dx = 10;
+
+var deutschlandRange = valueAxis.axisRanges.create();
+deutschlandRange.value = -25;
+deutschlandRange.endValue = 0;
+deutschlandRange.label.text = "DE";
+deutschlandRange.label.fill = chart.colors.list[0];
+deutschlandRange.label.dy = 20;
+deutschlandRange.label.fontWeight = '600';
+deutschlandRange.grid.strokeOpacity = 1;
+deutschlandRange.grid.stroke = deutschland.stroke;
+
+var europaRange = valueAxis.axisRanges.create();
+europaRange.value = 0;
+europaRange.endValue = 35;
+europaRange.label.text = "EUR";
+europaRange.label.fill = chart.colors.list[2];
+europaRange.label.dy = 20;
+europaRange.label.fontWeight = '600';
+europaRange.grid.strokeOpacity = 1;
+europaRange.grid.stroke = europa.stroke;

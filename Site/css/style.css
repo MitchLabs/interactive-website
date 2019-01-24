@@ -274,7 +274,8 @@ section {
 
 #mapchart {
   width: 100%;
-  height: 500px;
+  height: 85vh;
+    color: #e9e9e9;
 }
 
 /**** Graph1-1 & 1-2***/
@@ -323,7 +324,7 @@ section {
     left: 0;
     right: 0;
     background-color: #6C7178;
-    height: 230px;
+    height: 185px;
     z-index: 5;
 }
 
