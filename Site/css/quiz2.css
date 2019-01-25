@@ -22,10 +22,10 @@
 .quizbtn-back {
     display: block;
     color: #f9d767;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     border: 1px solid #f9d767;
-    padding: .5rem 1rem;
-    margin: 1rem 5rem;
+    padding: .8rem 1rem;
+    margin: 1.2rem 2rem;
     text-align: center;
     background-color: transparent;
     transition: ease .3s;
@@ -34,9 +34,8 @@
 
 
 .quizbtn:hover, .quizbtn:focus, .quizbtn:active {
-  color: #51565E;
-  border: 1px solid transparent;
-  background-color: #f9d767;
+  color: #e9e9e9;
+  border: 1px solid #e9e9e9;
   text-decoration: none;
 }
 

@@ -1,27 +1,24 @@
 $(document).ready(function() {
-    
     //activate wow.js
      new WOW().init();
     //activate fullpage.js
     $('#fullpage').fullpage({
       scrollBar: true,
       navigation: false,
-      //navigationTooltips: ['Slide 1', 'Slide 2', 'Slide 3', 'Slide 4'],
-      //loopBottom: true,
       sectionSelector: 'section'
     });
     
+//    Loading Animation
     $(".se-pre-con").fadeOut('slow');
-    
 });
 
-$('.hover').click(function(){
+/*$('.hover').click(function(){
     $('.panel').toggleClass('flip');
     $('.box2').removeClass('activepanel');
     $('.box2', this).addClass('activepanel');
-});
+});*/
 
-    //Flip-function
+    //Flip-function Quiz
 $('.quizbtn').click(function(e) {
   e.preventDefault();
   $('.flip-box').addClass('flipped');
@@ -32,17 +29,16 @@ $('.quizbtn-back').click(function(e) {
 });
 
 //Aktiver Link in Navigation markieren
-
-  $(window).scroll(function() {
+$(window).scroll(function() {
     var scrollPos = $(window).scrollTop();
     var page1Top = $("#HeroImage").offset().top;
     var page2Top = $("#info").offset().top;
     var page3Top = $("#graph1").offset().top;
-      var page4Top = $("#graph2").offset().top;
+    var page4Top = $("#graph2").offset().top;
     var page5Top = $("#graph3").offset().top;
-      var page6Top = $("#graph4").offset().top;
+    var page6Top = $("#graph4").offset().top;
     var page7Top = $("#graph5").offset().top;
-      var page8Top = $("#quiz").offset().top;
+    var page8Top = $("#quiz").offset().top;
     var page9Top = $("#footer").offset().top;
 
     if (scrollPos >= page1Top && scrollPos < page2Top) {
@@ -55,12 +51,9 @@ $('.quizbtn-back').click(function(e) {
       $(".nav07").removeClass("active");
         $(".nav08").removeClass("active");
       $(".nav09").removeClass("active");
-        
     } else {
       $(".nav01").removeClass("active");
-    }
-      
-      if (scrollPos >= page2Top && scrollPos < page3Top) {
+    } if (scrollPos >= page2Top && scrollPos < page3Top) {
       $(".nav02").addClass("active");
       $(".nav01").removeClass("active");
       $(".nav03").removeClass("active");
@@ -72,9 +65,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav02").removeClass("active");
-    }
-      
-      if (scrollPos >= page3Top && scrollPos < page4Top) {
+    } if (scrollPos >= page3Top && scrollPos < page4Top) {
       $(".nav03").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav01").removeClass("active");
@@ -86,9 +77,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav03").removeClass("active");
-    }
-      
-      if (scrollPos >= page4Top && scrollPos < page5Top) {
+    } if (scrollPos >= page4Top && scrollPos < page5Top) {
       $(".nav04").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -100,9 +89,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav04").removeClass("active");
-    }
-      
-      if (scrollPos >= page5Top && scrollPos < page6Top) {
+    } if (scrollPos >= page5Top && scrollPos < page6Top) {
       $(".nav05").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -112,12 +99,9 @@ $('.quizbtn-back').click(function(e) {
       $(".nav07").removeClass("active");
         $(".nav08").removeClass("active");
       $(".nav09").removeClass("active");
-          
     } else {
       $(".nav05").removeClass("active");
-    }
-      
-      if (scrollPos >= page6Top && scrollPos < page7Top) {
+    } if (scrollPos >= page6Top && scrollPos < page7Top) {
       $(".nav06").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -129,9 +113,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav06").removeClass("active");
-    }
-      
-      if (scrollPos >= page7Top && scrollPos < page8Top) {
+    } if (scrollPos >= page7Top && scrollPos < page8Top) {
       $(".nav07").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -143,9 +125,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav07").removeClass("active");
-    }
-      
-      if (scrollPos >= page8Top - 10 && scrollPos < page9Top) {
+    } if (scrollPos >= page8Top - 10 && scrollPos < page9Top) {
       $(".nav08").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -157,9 +137,7 @@ $('.quizbtn-back').click(function(e) {
       $(".nav09").removeClass("active");
     } else {
       $(".nav08").removeClass("active");
-    }
-      
-      if (scrollPos >= page9Top) {
+    } if (scrollPos >= page9Top) {
       $(".nav09").addClass("active");
       $(".nav02").removeClass("active");
       $(".nav03").removeClass("active");
@@ -172,7 +150,7 @@ $('.quizbtn-back').click(function(e) {
     } else {
       $(".nav09").removeClass("active");
     }
-  });
+});
 
 //COLOR THEME
 
@@ -415,26 +393,17 @@ groupData.forEach(function(group) {
   // its countries (provided those countries have a hover SpriteState, too!).
   series.setStateOnChildren = true;
   var seriesHoverState = series.states.create("hover");
-
   // Country shape properties & behaviors
   var mapPolygonTemplate = series.mapPolygons.template;
   // Instead of our custom title, we could also use {name} which comes from geodata
   mapPolygonTemplate.fill = am4core.color(group.color);
   mapPolygonTemplate.fillOpacity = 0.8;
-
   // States
   var hoverState = mapPolygonTemplate.states.create("hover");
   hoverState.properties.fill = am4core.color("#f9d767");
-
   // Tooltip
-  mapPolygonTemplate.tooltipText = "{customData} Teilnehmer aus {title}"; // enables tooltip
-  // series.tooltip.getFillFromObject = false; // prevents default colorization, which would make all tooltips red on hover
-  // series.tooltip.background.fill = am4core.color(group.color);
-
-  // MapPolygonSeries will mutate the data assigned to it,
-  // we make and provide a copy of the original data array to leave it untouched.
-  // (This method of copying works only for simple objects, e.g. it will not work
-  //  as predictably for deep copying custom Classes.)
+  mapPolygonTemplate.tooltipText = "{customData} Teilnehmer aus {title}";
+    
   series.data = JSON.parse(JSON.stringify(group.data));
 });
 
@@ -655,13 +624,9 @@ createSeries("deutschland", "D");
 createSeries("europa", "EUR");
 
 
-//* * * * *
-
-
 //chart3
 
 //    MOUSE ON CHART
-    
     $('.answ-1').hover(function() {
         $('.a-1').addClass('active_answer');
     }); $('.answ-1').mouseleave(function() {
@@ -699,7 +664,6 @@ createSeries("europa", "EUR");
     });
     
 //    MOUSE ON TEXT 
-    
     $('.a-1').hover(function() {
         $('.answ-1').addClass('active_chart');
     }); $('.a-1').mouseleave(function() {
@@ -735,9 +699,6 @@ createSeries("europa", "EUR");
     }); $('.a-7').mouseleave(function() {
         $('.answ-7').removeClass('active_chart');
     });
-
-
-//* * * * *
 
 
 //CHART 4
@@ -883,7 +844,6 @@ chart.data = [
   }
 ];
 
-
 chart.colors.step = 1;
 chart.padding(30, 30, 10, 30);
 chart.legend = new am4charts.Legend();
@@ -898,7 +858,6 @@ valueAxis.max = 100;
 valueAxis.strictMinMax = true;
 valueAxis.calculateTotals = true;
 valueAxis.renderer.minWidth = 50;
-
 
 var series1 = chart.series.push(new am4charts.ColumnSeries());
 series1.columns.template.width = am4core.percent(80);
@@ -933,11 +892,6 @@ var bullet2 = series2.bullets.push(new am4charts.LabelBullet());
 bullet2.label.text = "";
 bullet2.locationY = 0.5;
 bullet2.label.fill = am4core.color("#ffffff");
-
-//chart.scrollbarX = new am4core.Scrollbar();
-
-
-//* * * * *
 
 
 //CHART 5-1
@@ -1016,7 +970,6 @@ var series1 = chart.series.push(new am4charts.RadarColumnSeries());
 series1.dataFields.valueX = "full";
 series1.dataFields.categoryY = "category";
 series1.clustered = false;
-//series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
 series1.columns.template.fillOpacity = 0.08;
 series1.columns.template.cornerRadiusTopLeft = 0;
 series1.columns.template.strokeWidth = 0;
@@ -1037,11 +990,43 @@ series2.columns.template.adapter.add("fill", function(fill, target) {
 
 // Q U I Z
 
+//- Text Wechsler
+
+$(".antwort1").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Ich behalte es, weil es meinem Verwandten gehörte</strong> entschieden.</h3><p>So antworteten auch 17,3% der deutschen Befragten und 6,3% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort2").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Behalte und verwende es</strong> entschieden.</h3><p>So antworteten auch 40,1% der deutschen Befragten und 58,5% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort3").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Behalte es, da es sich im Regal gut machen wird</strong> entschieden.</h3><p>So antworteten auch 17,3% der deutschen Befragten und 6,3% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort4").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Ich spende es einer Bibliothek</strong> entschieden.</h3><p>So antworteten auch 10,9% der deutschen Befragten und 9,9% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort5").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Ich werfe es weg</strong> entschieden.</h3><p>So antworteten auch 9,4% der deutschen Befragten und 3,1% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort6").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Keine der genannten Möglichkeiten</strong> entschieden.</h3><p>So antworteten auch 8,6% der deutschen Befragten und 6,3% aller Teilnehmer der Studie.</p>" );
+});
+
+$(".antwort7").click(function(){
+    $(".wechselText").replaceWith( "<h3>Sie haben sich für die Antwort <strong>Ich versuche, es zu verkaufen</strong> entschieden.</h3><p>So antworteten auch 7,3% der deutschen Befragten und 2,3% aller Teilnehmer der Studie.</p>" );
+});
+
+
+// - quiz Chart
+
 am4core.useTheme(am4themes_wd3);
 am4core.useTheme(am4themes_animated);
 // create chart instance
 var quiz = am4core.create("quizChart", am4charts.XYChart);
-
 // Add data
 quiz.data = [{
   "antwort": "Ich behalte und verwende es",
@@ -1072,7 +1057,6 @@ quiz.data = [{
   "de-wert": -6.5,
   "eu-wert": 13.4
 }];
-
 // Use only absolute numbers
 quiz.numberFormatter.numberFormat = "#.#s";
 // Create axes
@@ -1091,7 +1075,6 @@ valueAxis.renderer.ticks.template.strokeOpacity = 0.4;
 valueAxis.renderer.labels.template.adapter.add("text", function(text) {
   return text == "DE" || text == "EUR" ? text : text + "%";
 })
-
 // Create series
 var deutschland = quiz.series.push(new am4charts.ColumnSeries());
 deutschland.dataFields.valueX = "de-wert";
@@ -1121,20 +1104,20 @@ europaLabel.label.dx = 10;
 
 var deutschlandRange = valueAxis.axisRanges.create();
 deutschlandRange.value = -25;
-deutschlandRange.endValue = 0;
+deutschlandRange.endValue = -25;
 deutschlandRange.label.text = "DE";
-deutschlandRange.label.fill = chart.colors.list[0];
+deutschlandRange.label.fill = quiz.colors.list[2];
 deutschlandRange.label.dy = 20;
 deutschlandRange.label.fontWeight = '600';
-deutschlandRange.grid.strokeOpacity = 1;
+deutschlandRange.grid.strokeOpacity = 0;
 deutschlandRange.grid.stroke = deutschland.stroke;
 
 var europaRange = valueAxis.axisRanges.create();
-europaRange.value = 0;
+europaRange.value = 35;
 europaRange.endValue = 35;
 europaRange.label.text = "EUR";
-europaRange.label.fill = chart.colors.list[2];
+europaRange.label.fill = quiz.colors.list[5];
 europaRange.label.dy = 20;
 europaRange.label.fontWeight = '600';
-europaRange.grid.strokeOpacity = 1;
+europaRange.grid.strokeOpacity = 0;
 europaRange.grid.stroke = europa.stroke;
